@@ -1,0 +1,29 @@
+app:
+  poll_interval_seconds: 5
+  log_level: INFO
+
+probes:
+  - id: pit
+    name: "Pit Temp"
+    channel: 0
+    type: "thermocouple"
+  - id: meat1
+    name: "Brisket"
+    channel: 1
+    type: "thermocouple"
+
+storage:
+  backend: "csv"
+  csv:
+    path: "/var/log/pit-companion/readings.csv"
+
+home_assistant:
+  enabled: true
+  mqtt:
+    host: "192.168.1.100"
+    port: 1883
+    topic_prefix: "homeassistant/sensor/pit_companion"
+
+notifications:
+  enabled: false
+  # future: pushover / email / webhook config

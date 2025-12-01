@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pit-companion"
+version = "0.1.0"
+description = "Raspberry Pi-based BBQ pit companion for temperature monitoring"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.0",
+    "pyyaml>=6.0",
+    "paho-mqtt>=2.0",        # for Home Assistant via MQTT
+    "RPi.GPIO; platform_system == 'Linux'",
+    "spidev; platform_system == 'Linux'",
+]
+
+[project.scripts]
+pit-companion = "pit_companion.cli:main"
