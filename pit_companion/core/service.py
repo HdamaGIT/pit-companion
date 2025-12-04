@@ -1,5 +1,3 @@
-# pit_companion/core/service.py
-
 from collections import deque
 from dataclasses import dataclass
 from datetime import datetime

@@ -1,8 +1,6 @@
-# pit_companion/hardware/probes_mock.py
-
 import math
 import random
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Dict
 
 from .probes_base import ProbeReader

@@ -6,7 +6,6 @@ import streamlit as st
 from pit_companion.core.service import TemperatureService
 from pit_companion.hardware.probes_mock import MockProbeReader
 
-
 # --- Single shared service for all sessions ---------------------------------
 
 
@@ -14,7 +13,6 @@ from pit_companion.hardware.probes_mock import MockProbeReader
 def get_service() -> TemperatureService:
     reader = MockProbeReader()
     return TemperatureService(reader=reader, max_points=6 * 60)
-
 
 service = get_service()
 
