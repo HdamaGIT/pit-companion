@@ -88,9 +88,9 @@ def main() -> None:
     )
 
     # Auto-refresh every 5 seconds
-    st_autorefresh = st.experimental_memo(lambda: None)  # dummy to avoid linting
-    st_autorefresh()
-    st.experimental_rerun  # noqa: just a placeholder hint
+    # st_autorefresh = st.experimental_memo(lambda: None)  # dummy to avoid linting
+    # st_autorefresh()
+    # st.experimental_rerun  # noqa: just a placeholder hint
 
     st.markdown(
         "<h1 style='text-align: center; margin-bottom: 0.5rem;'>Pit Companion</h1>",
