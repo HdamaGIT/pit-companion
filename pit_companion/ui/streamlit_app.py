@@ -95,6 +95,22 @@ def main() -> None:
         "<p style='text-align: center; opacity: 0.7; margin-bottom: 1.5rem;'>Mock data – probes not connected</p>",
         unsafe_allow_html=True,
     )
+    st.markdown("""
+    <style>
+    /* Remove default Streamlit padding */
+    .block-container {
+        padding-top: 0rem;
+        padding-bottom: 0rem;
+        padding-left: 0rem;
+        padding-right: 0rem;
+    }
+
+    /* Hide Streamlit footer and menu */
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    #MainMenu {visibility: hidden;}
+    </style>
+    """, unsafe_allow_html=True)
 
     # Take a reading on each run
     reading = service.poll_once()
