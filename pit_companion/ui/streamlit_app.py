@@ -87,11 +87,6 @@ def main() -> None:
         initial_sidebar_state="collapsed",
     )
 
-    # Auto-refresh every 5 seconds
-    # st_autorefresh = st.experimental_memo(lambda: None)  # dummy to avoid linting
-    # st_autorefresh()
-    # st.experimental_rerun  # noqa: just a placeholder hint
-
     st.markdown(
         "<h1 style='text-align: center; margin-bottom: 0.5rem;'>Pit Companion</h1>",
         unsafe_allow_html=True,
@@ -107,43 +102,36 @@ def main() -> None:
     meat = reading.values["meat"]
 
     stat = compute_status(pit, meat)
-    col_pit, col_meat, col_status = st.columns(3)
 
-    # Cook view tiles
-    with col_pit:
-        make_block(
-            title="Pit Temp",
-            main=f"{pit:.1f}°C",
-            subtitle="Target ~110°C",
-            bg="#37474f",
-        )
-
-    with col_meat:
-        make_block(
-            title="Meat Temp",
-            main=f"{meat:.1f}°C",
-            subtitle="Target ~95°C",
-            bg="#263238",
-        )
-
-    with col_status:
-        make_block(
-            title="Status",
-            main=stat["label"],
-            subtitle="Mock cook in progress",
-            bg=status_color(stat["level"]),
-        )
-
-    st.markdown("---")
-
-    # History chart
+    # Layout tabs: touchscreen cook view vs charts/dashboard
     tab_cook, tab_charts = st.tabs(["Cook View", "Charts"])
 
     with tab_cook:
-        st.markdown(
-            "<p style='text-align: center; margin-top: 1rem;'>This is your touchscreen view. We can refine layout/colour later.</p>",
-            unsafe_allow_html=True,
-        )
+        col_pit, col_meat, col_status = st.columns(3)
+
+        with col_pit:
+            make_block(
+                title="Pit Temp",
+                main=f"{pit:.1f}°C",
+                subtitle="Target ~110°C",
+                bg="#37474f",
+            )
+
+        with col_meat:
+            make_block(
+                title="Meat Temp",
+                main=f"{meat:.1f}°C",
+                subtitle="Target ~95°C",
+                bg="#263238",
+            )
+
+        with col_status:
+            make_block(
+                title="Status",
+                main=stat["label"],
+                subtitle="Mock cook in progress",
+                bg=status_color(stat["level"]),
+            )
 
     with tab_charts:
         st.subheader("Temperature over time (mock data)")
