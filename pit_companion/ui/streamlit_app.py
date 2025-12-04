@@ -81,20 +81,8 @@ def make_block(title: str, main: str, subtitle: str, bg: str) -> None:
 
 
 def main() -> None:
-    st.set_page_config(
-        page_title="Pit Companion",
-        layout="wide",
-        initial_sidebar_state="collapsed",
-    )
+    st.set_page_config(layout="wide")
 
-    st.markdown(
-        "<h1 style='text-align: center; margin-bottom: 0.5rem;'>Pit Companion</h1>",
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        "<p style='text-align: center; opacity: 0.7; margin-bottom: 1.5rem;'>Mock data – probes not connected</p>",
-        unsafe_allow_html=True,
-    )
     st.markdown("""
     <style>
     /* Remove default Streamlit padding */
