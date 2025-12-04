@@ -1,6 +1,6 @@
 from pit_companion.config import load_config
 from pit_companion.core.controller import PitController
-from pit_companion.hardware.probes import MockProbeReader
+from pit_companion.hardware.probes_base import MockProbeReader
 from pit_companion.storage.csv_storage import CSVStorage
 from pit_companion.integrations.home_assistant import HomeAssistantMQTTPublisher
 
