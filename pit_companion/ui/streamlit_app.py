@@ -2,6 +2,7 @@
 
 import pandas as pd
 import streamlit as st
+from streamlit_autorefresh import st_autorefresh
 
 from pit_companion.core.service import TemperatureService
 from pit_companion.hardware.probes_mock import MockProbeReader
@@ -82,6 +83,9 @@ def make_block(title: str, main: str, subtitle: str, bg: str) -> None:
 
 def main() -> None:
     st.set_page_config(layout="wide")
+
+    # Auto-refresh every 2 seconds
+    st_autorefresh(interval=2000, key="pit_autorefresh")
 
     st.markdown("""
     <style>
