@@ -85,7 +85,7 @@ def main() -> None:
     st.set_page_config(layout="wide")
 
     # Auto-refresh every 2 seconds
-    st_autorefresh(interval=2000, key="pit_autorefresh")
+    st_autorefresh(interval=5000, key="pit_autorefresh")
 
     st.markdown("""
     <style>
